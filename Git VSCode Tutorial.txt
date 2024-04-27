@@ -1,0 +1,14 @@
+Step 1
+Login with your Github account on vscode by click the Accounts button. Follow the instruction.
+Step 2
+Open new folder and create new file
+Step 3
+Click Source Control button and select View and More Actions (as three dot button icon) and select Remote and click Add Remote
+Step 4
+Select Add remote from Github and select Repository name
+Step 5
+Go to Explorer and create new file modifie it and go back to Source Control menu
+Step 6
+On the Changes area click plus button
+Step 7
+Add commit message on Message area and click Commit. Wait and click Sync button.
