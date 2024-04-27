@@ -1,3 +1,2 @@
 # My VSCode Projects
-Readme.md
-my first commit
+where I store my projects
