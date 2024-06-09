@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1 id="title1">Login or Register</h1>
+    <main id="form">
+        <input type="text" id="usernameField" placeholder="Username">
+        <br><br><br><br>
+        <input type="password" id="passwordField" placeholder="Password">
+    </main>
+    <section id="buttonForm">
+        <button id="loginButton">Login</button>
+        <br><br>
+        <button id="registerButton">Register</button>
+    </section>
+</body>
+</html>
+<style>
+body{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    background: rgb(236, 236, 236);
+}
+#title1{
+    font-family: Verdana;
+    grid-column-end: span 2;
+    margin: 20px;
+    color: rgb(19, 19, 19);
+}
+#form{
+    grid-column-end: span 3;
+    margin: 30px;
+    place-items: center;
+    border: transparent;
+}
+#form>#usernameField{
+    width: 98%;
+    height: 40px;
+    border: transparent;
+    border-bottom: 2px solid dimgray;
+    background: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    border-radius: 2px;
+    transition: 200ms;
+}
+#form>#passwordField{
+    width: 98%;
+    height: 40px;
+    border: transparent;
+    border-bottom: 2px solid dimgray;
+    background: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    border-radius: 2px;
+    transition: 200ms;
+}
+#usernameField:hover{
+    border-bottom: 2px solid rgb(82, 29, 228);
+}
+#passwordField:hover{
+    border-bottom: 2px solid rgb(82, 29, 228);
+}
+#buttonForm{
+    grid-column-end: span 3;
+    border: transparent;
+    margin: 30px;
+    height: 120px;
+    text-align: center;
+}
+#buttonForm>#loginButton{
+    width: 150px;
+    height: 40px;
+    background-color:  rgb(82, 29, 228);
+    border: transparent;
+    color: white;
+    font-weight: bold;
+    border-radius: 7px;
+    font-size: 15px;
+}
+#buttonForm>#registerButton{
+    width: 150px;
+    height: 40px;
+    background-color:  white;
+    border: transparent;
+    color: rgb(82, 29, 228);
+    font-weight: bold;
+    border-radius: 7px;
+    font-size: 15px;
+    border: 1px solid rgb(82, 29, 228);
+}
+</style>
+<script>
+    var usernameField=document.getElementById('usernameField');
+    var passwordField=document.getElementById('passwordField');
+    var loginButton=document.getElementById('loginButton');
+    var registerButton=document.getElementById('registerButton');
+    loginButton.onclick=()=>{
+        var formData=new FormData();
+        formData.append("username",usernameField.value);
+        formData.append("password",passwordField.value);
+        var xhr=new XMLHttpRequest();
+        xhr.open("POST","http://127.0.0.1:1395/login",true);
+        xhr.responseType="json";
+        xhr.onload=()=>{
+            var responseServer=xhr.response;
+            console.log(responseServer);
+        }
+        xhr.send(formData);
+    }
+</script>
